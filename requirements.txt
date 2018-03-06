@@ -8,7 +8,6 @@ configparser==3.5.0
 Django==1.11.10
 enum34==1.1.6
 Flask==0.12.2
-Flask-SQLAlchemy==2.1
 isort==4.2.15
 itsdangerous==0.24
 Jinja2==2.10
@@ -21,7 +20,6 @@ pylint==1.8.1
 pytz==2017.3
 singledispatch==3.4.0.3
 six==1.11.0
-SQLAlchemy==1.2.2
 virtualenv==15.1.0
 Werkzeug==0.14.1
 wrapt==1.10.11
