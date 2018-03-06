@@ -1,0 +1,111 @@
+/*CSS reset settings here*/
+* {
+    margin:0;
+    padding:0;
+}
+body{
+    background: url("../images/bg.jpg") no-repeat top center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    font-size: 24px;
+    weight:100;
+    padding: 10px 0;
+    border-bottom: 2px solid #851e1f;
+}
+p,form {
+    font-size:14px;
+    font-family: 'Roboto', sans-serif;
+    color:#333;
+}
+a{
+    color: #cc0099;
+    font-family: 'Roboto', sans-serif;
+}
+#wrapper {
+    display: block;
+    border-radius:8px;
+    width: 780px;
+    margin: 20px auto;
+    padding:50px;
+    background:#eff5f5;
+    box-shadow: 2px 2px 10px #333
+}
+#left, #right {
+    display: inline-block;
+    width:45%;
+    padding:5px;
+    margin:10px;
+    vertical-align: top;
+}
+
+.big {
+    font-size: 36px;
+}
+
+.button{
+    background-color: #851e1f; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:4px;
+    margin:10px;
+}
+
+.feedback{
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:4px;
+    margin:10px;
+}
+
+input, textarea, dropdown {
+    padding: 5px;
+    border-radius:4px;
+    border: 1px solid #ccc;
+    background: #e6f9ff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin-bottom:5px;
+}
+table {
+    font-family: 'Roboto', sans-serif;
+    width:100%;
+}
+
+th {
+    font-weight: 700;
+    color:#FFF;
+    background:#851e1f;
+    padding:5px;
+}
+
+td {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.block {
+    display: block;
+    width:100%;
+    padding: 5px;
+    margin: 5px;
+    vertical-align: top;
+    border: 1px solid #CCC;
+}

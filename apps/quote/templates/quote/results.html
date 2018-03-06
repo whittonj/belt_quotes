@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>User view</title>
+        {% load static %}
+      <!-- The line above tells Django to be ready to listen for static files -->
+      <link rel="stylesheet" href="{% static 'quote/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+      <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->    
+      </head>
+    <body><div id="wrapper">
+        <p><a href = "/logout">Logout</a>   |    <a href = "/users/{{request.session.uid}}"> Dashboard</a>   |    <a href = "/quotes"> Quotes </a></p>
+        <h1>Results by {{user_data.name}}</h1>
+          {% csrf_token %}   
+          <h2>{{user_data.name}}</h2>
+          <p>User alias: {{user_data.alias}}</p>
+          <p>Email: {{user_data.email_address}}</p>
+          <p> userid: {{user_data.id }}</p>    
+          {% for quote in quotes %}
+          <p class = "block"> {{quote.id}}. {{quote.author}} -- {{quote.quote}} <br>
+            Posted by:<a href = "/../users/{{quote.user_id}}/">{{quote.user.alias}}</a> <br>
+          {% endfor %}</div>
+          <p>
+
+</p>
+        </body></div>
+  </html>

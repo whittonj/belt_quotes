@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Users ORM</title>
+        {% load static %}
+      <!-- The line above tells Django to be ready to listen for static files -->
+      <link rel="stylesheet" href="{% static 'user_login/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+      <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->    
+      </head>
+    <body>
+      <div id="wrapper">
+         
+        <h1>Create Users</h1><br>
+        <form action="/update/{{user_info.id}}/" method="post">
+            {% csrf_token %}
+            <p>First name: <input type="text" name="first_name" placeholder="{{user_info.first_name}}"></p>
+            <p>Last name: <input type="text" name="last_name" placeholder="{{user_info.last_name }}"></p>
+            <p>email: <input type="email" name="email_address" placeholder="{{user_info.email_address}}"></p>
+            <p>Age: <input type="text" name="age" placeholder="{{user_info.age}}"></p>
+            <input type="submit" value="submit">
+          </form>
+        <table><th>ID</th><th>Full name</th><th>email</th><th>actions</th>
+        {% for user in user_list %}
+        <tr>
+          {% csrf_token %} 
+          <td>{{user.id}}</td>
+          <td>{{user.first_name}} {{user.last_name }}</td>
+          <td>{{user.email_address}}</td>
+          <td>show edit delete </td>
+      </tr>
+        {% endfor %}
+    </table>
+    <p>Add a new user</p>
+        </div>
+    </body>
+  </html>

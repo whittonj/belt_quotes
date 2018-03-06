@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Belt Reviewer</title>
+        {% load static %}
+      <!-- The line above tells Django to be ready to listen for static files -->
+      <link rel="stylesheet" href="{% static 'quote/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+      <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->    
+      </head>
+    <body>
+      <div id="wrapper">
+          <p><a href = "/logout">Logout</a>   |    <a href = "/users/{{request.session.uid}}"> Dashboard</a>   |    <a href = "/quotes"> Quotes </a></p>
+        <h1>Welcome {{request.session.alias}}</h1><br>
+        {% if messages %}
+<p class="feedback">
+    {% for message in messages %}
+    {% if message.tags %}  {% endif %}>{{ message }}
+    {% endfor %}
+</p>
+{% endif %}
+        
+      <div id = "left">
+    <h2>Quotable Quotes</h2>
+    {% for aquote in allq %}
+    <p class = "block"> {{aquote.id}}. {{aquote.author}} -- {{aquote.quote}} <br>
+      Posted by: <a href = "/../users/{{aquote.user_id}}/">{{aquote.user.alias}}</a>
+      <form action="/addfav" method="post" >
+        {% csrf_token %}
+        <input type="hidden" name="quote_id" value="{{aquote.id}}" >
+        <input type="submit" value="Add to faves"></p>
+      </form>
+    {% endfor %}
+    </div> 
+    <div id = "right">
+    <h2>Favorites</h2>
+    {% for quote in quotes %}
+    <p class = "block"> {{quote.id}}. {{quote.author}} -- {{quote.quote}} <br>
+      Posted by:<a href = "/../users/{{quote.user_id}}/">{{quote.user.alias}}</a> <br>
+      <form action="/remfav" method="post" >
+        {% csrf_token %}
+        <input type="hidden" name="quote_id" value="{{quote.id}}" >
+        <input type="submit" value="Remove from faves"></p>
+      </form>
+    {% endfor %}
+  <br><hr><br>
+  <form action="/makequote" method="post" id="quoteform">
+    {% csrf_token %}
+    <h2>Add a quote</h2>
+    <p>Quote author: <input type="text" name="author" placeholder="name"></p>
+    <textarea name="quote" form="quoteform"></textarea>
+    <input type="submit" value="submit">
+  </form><br><br></div>
+    </div>    
+        </div>
+    </body>
+  </html>
